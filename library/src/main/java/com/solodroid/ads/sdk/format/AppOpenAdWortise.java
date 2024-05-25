@@ -7,13 +7,15 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.solodroid.ads.sdk.util.OnShowAdCompleteListener;
+import com.wortise.ads.AdError;
+import com.wortise.ads.appopen.AppOpenAd;
 
 import java.util.Date;
 
 public class AppOpenAdWortise {
 
     private static final String LOG_TAG = "AppOpenAd";
-    private com.wortise.ads.appopen.AppOpenAd wortiseAppOpenAd = null;
+    private AppOpenAd wortiseAppOpenAd = null;
     private boolean isLoadingAd = false;
     public boolean isShowingAd = false;
     private long loadTime = 0;
@@ -26,7 +28,7 @@ public class AppOpenAdWortise {
             return;
         }
         isLoadingAd = true;
-        wortiseAppOpenAd = new com.wortise.ads.appopen.AppOpenAd(context, wortiseAppOpenId);
+        wortiseAppOpenAd = new AppOpenAd(context, wortiseAppOpenId);
         wortiseAppOpenAd.setListener(wortiseAppOpenAdListener);
         wortiseAppOpenAd.loadAd();
     }
@@ -60,14 +62,33 @@ public class AppOpenAdWortise {
         }
 
         Log.d(LOG_TAG, "Will show ad.");
-        wortiseAppOpenAd.setListener(new com.wortise.ads.appopen.AppOpenAd.Listener() {
+        wortiseAppOpenAd.setListener(new AppOpenAd.Listener() {
             @Override
-            public void onAppOpenClicked(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+            public void onAppOpenImpression(@NonNull AppOpenAd appOpenAd) {
 
             }
 
             @Override
-            public void onAppOpenDismissed(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+            public void onAppOpenFailedToShow(@NonNull AppOpenAd appOpenAd, @NonNull AdError adError) {
+
+            }
+
+            @Override
+            public void onAppOpenFailedToLoad(@NonNull AppOpenAd appOpenAd, @NonNull AdError adError) {
+                isLoadingAd = false;
+                wortiseAppOpenAd = null;
+                isShowingAd = false;
+                onShowAdCompleteListener.onShowAdComplete();
+                loadAd(activity, wortiseAppOpenAdUnitId);
+            }
+
+            @Override
+            public void onAppOpenClicked(@NonNull AppOpenAd appOpenAd) {
+
+            }
+
+            @Override
+            public void onAppOpenDismissed(@NonNull AppOpenAd appOpenAd) {
                 wortiseAppOpenAd = null;
                 isShowingAd = false;
                 onShowAdCompleteListener.onShowAdComplete();
@@ -76,23 +97,14 @@ public class AppOpenAdWortise {
             }
 
             @Override
-            public void onAppOpenFailed(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
-                isLoadingAd = false;
-                wortiseAppOpenAd = null;
-                isShowingAd = false;
-                onShowAdCompleteListener.onShowAdComplete();
-                loadAd(activity, wortiseAppOpenAdUnitId);
-            }
-
-            @Override
-            public void onAppOpenLoaded(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+            public void onAppOpenLoaded(@NonNull AppOpenAd appOpenAd) {
                 isLoadingAd = false;
                 loadTime = (new Date()).getTime();
                 Log.d(LOG_TAG, "onAdLoaded.");
             }
 
             @Override
-            public void onAppOpenShown(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+            public void onAppOpenShown(@NonNull AppOpenAd appOpenAd) {
 
             }
         });
@@ -101,31 +113,41 @@ public class AppOpenAdWortise {
         wortiseAppOpenAd.showAd(activity);
     }
 
-    com.wortise.ads.appopen.AppOpenAd.Listener wortiseAppOpenAdListener = new com.wortise.ads.appopen.AppOpenAd.Listener() {
+    AppOpenAd.Listener wortiseAppOpenAdListener = new AppOpenAd.Listener() {
         @Override
-        public void onAppOpenClicked(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+        public void onAppOpenImpression(@NonNull AppOpenAd appOpenAd) {
 
         }
 
         @Override
-        public void onAppOpenDismissed(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
-            wortiseAppOpenAd.loadAd();
+        public void onAppOpenFailedToShow(@NonNull AppOpenAd appOpenAd, @NonNull AdError adError) {
+
         }
 
         @Override
-        public void onAppOpenFailed(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
+        public void onAppOpenFailedToLoad(@NonNull AppOpenAd appOpenAd, @NonNull AdError adError) {
             isLoadingAd = false;
             wortiseAppOpenAd.loadAd();
         }
 
         @Override
-        public void onAppOpenLoaded(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+        public void onAppOpenClicked(@NonNull AppOpenAd appOpenAd) {
+
+        }
+
+        @Override
+        public void onAppOpenDismissed(@NonNull AppOpenAd appOpenAd) {
+            wortiseAppOpenAd.loadAd();
+        }
+
+        @Override
+        public void onAppOpenLoaded(@NonNull AppOpenAd appOpenAd) {
             isLoadingAd = false;
             loadTime = (new Date()).getTime();
         }
 
         @Override
-        public void onAppOpenShown(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+        public void onAppOpenShown(@NonNull AppOpenAd appOpenAd) {
 
         }
     };

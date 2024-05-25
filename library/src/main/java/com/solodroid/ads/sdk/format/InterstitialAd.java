@@ -484,6 +484,22 @@ public class InterstitialAd {
                         wortiseInterstitialAd = new com.wortise.ads.interstitial.InterstitialAd(activity, wortiseInterstitialId);
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                loadBackupInterstitialAd();
+                                Log.d(TAG, "[Wortise] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
 
                             }
@@ -492,12 +508,6 @@ public class InterstitialAd {
                             public void onInterstitialDismissed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
                                 loadInterstitialAd();
                                 Log.d(TAG, "[Wortise] Interstitial Ad dismissed");
-                            }
-
-                            @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
-                                loadBackupInterstitialAd();
-                                Log.d(TAG, "[Wortise] Failed to load Interstitial Ad");
                             }
 
                             @Override
@@ -786,6 +796,21 @@ public class InterstitialAd {
                         wortiseInterstitialAd = new com.wortise.ads.interstitial.InterstitialAd(activity, wortiseInterstitialId);
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                Log.d(TAG, "[Wortise] [Backup] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
 
                             }
@@ -794,11 +819,6 @@ public class InterstitialAd {
                             public void onInterstitialDismissed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
                                 loadInterstitialAd();
                                 Log.d(TAG, "[Wortise] [Backup] Interstitial Ad dismissed");
-                            }
-
-                            @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
-                                Log.d(TAG, "[Wortise] [Backup] Failed to load Interstitial Ad");
                             }
 
                             @Override
@@ -1318,6 +1338,22 @@ public class InterstitialAd {
                         wortiseInterstitialAd = new com.wortise.ads.interstitial.InterstitialAd(activity, wortiseInterstitialId);
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                loadBackupInterstitialAd(onInterstitialAdDismissedListener);
+                                Log.d(TAG, "[Wortise] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
 
                             }
@@ -1327,12 +1363,6 @@ public class InterstitialAd {
                                 loadInterstitialAd();
                                 onInterstitialAdDismissedListener.onInterstitialAdDismissed();
                                 Log.d(TAG, "[Wortise] Interstitial Ad dismissed");
-                            }
-
-                            @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
-                                loadBackupInterstitialAd(onInterstitialAdDismissedListener);
-                                Log.d(TAG, "[Wortise] Failed to load Interstitial Ad");
                             }
 
                             @Override
@@ -1626,6 +1656,21 @@ public class InterstitialAd {
                         wortiseInterstitialAd = new com.wortise.ads.interstitial.InterstitialAd(activity, wortiseInterstitialId);
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                Log.d(TAG, "[Wortise] [Backup] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
 
                             }
@@ -1635,11 +1680,6 @@ public class InterstitialAd {
                                 loadInterstitialAd(onInterstitialAdDismissedListener);
                                 onInterstitialAdDismissedListener.onInterstitialAdDismissed();
                                 Log.d(TAG, "[Wortise] [Backup] Interstitial Ad dismissed");
-                            }
-
-                            @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
-                                Log.d(TAG, "[Wortise] [Backup] Failed to load Interstitial Ad");
                             }
 
                             @Override

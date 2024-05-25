@@ -175,7 +175,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                     .withAdListener(new AdListener() {
                                         @Override
                                         public void onAdFailedToLoad(@NonNull LoadAdError adError) {
-                                            loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                            loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                         }
                                     })
                                     .build();
@@ -209,7 +209,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                     .withAdListener(new AdListener() {
                                         @Override
                                         public void onAdFailedToLoad(@NonNull LoadAdError adError) {
-                                            loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                            loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                         }
                                     })
                                     .build();
@@ -231,7 +231,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
 
                                 @Override
                                 public void onError(com.facebook.ads.Ad ad, AdError adError) {
-                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                 }
 
                                 @Override
@@ -381,7 +381,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 public void onFailedToReceiveAd(Ad arg0) {
                                     //startapp_native_ad.setVisibility(View.GONE);
                                     //native_ad_view_container.setVisibility(View.GONE);
-                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                     Log.d(TAG, "ad failed");
                                 }
                             };
@@ -427,7 +427,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 @Override
                                 public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
-                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                     Log.d(TAG, "failed to load Max Native Ad with message : " + error.getMessage() + " and error code : " + error.getCode());
                                 }
 
@@ -466,7 +466,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 public void failedToReceiveAd(int errorCode) {
                                     appLovinDiscoveryMrecAd.setVisibility(View.GONE);
                                     nativeAdViewContainer.setVisibility(View.GONE);
-                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                 }
                             });
                             appLovinDiscoveryMrecAd.addView(this.appLovinAdView);
@@ -487,14 +487,14 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                         if (wortiseNativeAd.getVisibility() != View.VISIBLE) {
                             mGoogleNativeAd = new GoogleNativeAd(context, wortiseNativeId, new GoogleNativeAd.Listener() {
                                 @Override
-                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
-
+                                public void onNativeFailedToLoad(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
+                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, alienAdsNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                    Log.d(TAG, "Wortise Native Ad failed loaded");
                                 }
 
                                 @Override
-                                public void onNativeFailed(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
-                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
-                                    Log.d(TAG, "Wortise Native Ad failed loaded");
+                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
+
                                 }
 
                                 @Override
@@ -881,13 +881,13 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                         if (wortiseNativeAd.getVisibility() != View.VISIBLE) {
                             mGoogleNativeAd = new GoogleNativeAd(context, wortiseNativeId, new GoogleNativeAd.Listener() {
                                 @Override
-                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
-
+                                public void onNativeFailedToLoad(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
+                                    Log.d(TAG, "[Backup] Wortise Native Ad failed loaded");
                                 }
 
                                 @Override
-                                public void onNativeFailed(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
-                                    Log.d(TAG, "[Backup] Wortise Native Ad failed loaded");
+                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
+
                                 }
 
                                 @Override
@@ -1282,14 +1282,14 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                         if (wortiseNativeAd.getVisibility() != View.VISIBLE) {
                             mGoogleNativeAd = new GoogleNativeAd(context, wortiseNativeId, new GoogleNativeAd.Listener() {
                                 @Override
-                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
-
+                                public void onNativeFailedToLoad(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
+                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
+                                    Log.d(TAG, "Wortise Native Ad failed loaded");
                                 }
 
                                 @Override
-                                public void onNativeFailed(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
-                                    loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
-                                    Log.d(TAG, "Wortise Native Ad failed loaded");
+                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
+
                                 }
 
                                 @Override
@@ -1676,13 +1676,13 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                         if (wortiseNativeAd.getVisibility() != View.VISIBLE) {
                             mGoogleNativeAd = new GoogleNativeAd(context, wortiseNativeId, new GoogleNativeAd.Listener() {
                                 @Override
-                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
-
+                                public void onNativeFailedToLoad(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
+                                    Log.d(TAG, "[Backup] Wortise Native Ad failed loaded");
                                 }
 
                                 @Override
-                                public void onNativeFailed(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
-                                    Log.d(TAG, "[Backup] Wortise Native Ad failed loaded");
+                                public void onNativeClicked(@NonNull GoogleNativeAd googleNativeAd) {
+
                                 }
 
                                 @Override
