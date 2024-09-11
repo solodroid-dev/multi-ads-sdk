@@ -38,25 +38,25 @@ dependencies {
     implementation 'com.google.android.gms:play-services-basement:18.4.0'
 
     //Primary Ad Networks
-    implementation 'com.google.android.gms:play-services-ads:23.2.0'
-    implementation 'com.startapp:inapp-sdk:5.0.2'
-    implementation 'com.applovin:applovin-sdk:12.5.0'
-    implementation 'com.unity3d.ads:unity-ads:4.12.0'
+    implementation 'com.google.android.gms:play-services-ads:23.3.0'
+    implementation 'com.startapp:inapp-sdk:5.1.0'
+    implementation 'com.applovin:applovin-sdk:12.6.1'
+    implementation 'com.unity3d.ads:unity-ads:4.12.2'
     implementation 'com.ironsource.sdk:mediationsdk:8.1.0'
     implementation 'com.facebook.android:audience-network-sdk:6.17.0'
     implementation 'com.wortise:android-sdk:1.5.2-beta05'
 
     //AdMob mediation
-    implementation 'com.google.ads.mediation:applovin:12.5.0.1'
-    implementation 'com.google.ads.mediation:unity:4.12.0.0'
-    implementation 'com.google.ads.mediation:ironsource:8.1.0.0'
+    implementation 'com.google.ads.mediation:applovin:12.6.1.0'
+    implementation 'com.google.ads.mediation:unity:4.12.2.0'
+    implementation 'com.google.ads.mediation:ironsource:8.3.0.0'
     implementation 'com.google.ads.mediation:facebook:6.17.0.0'
 
     //Applovin mediation
-    implementation 'com.applovin.mediation:google-ad-manager-adapter:23.2.0.0'
-    implementation 'com.applovin.mediation:google-adapter:23.2.0.0'
-    implementation 'com.applovin.mediation:unityads-adapter:4.12.0.0'
-    implementation 'com.applovin.mediation:ironsource-adapter:8.1.0.0.0'
+    implementation 'com.applovin.mediation:google-ad-manager-adapter:23.3.0.0'
+    implementation 'com.applovin.mediation:google-adapter:23.3.0.0'
+    implementation 'com.applovin.mediation:unityads-adapter:4.12.2.0'
+    implementation 'com.applovin.mediation:ironsource-adapter:8.3.0.0.1'
     implementation 'com.applovin.mediation:facebook-adapter:6.17.0.0'
 
     //ironSource mediation
@@ -74,6 +74,6 @@ dependencies {
     implementation 'com.unity3d.mediation:ironsource-adapter:1.1.0'
 
     //GDPR
-    implementation 'com.google.android.ump:user-messaging-platform:2.2.0'
+    implementation 'com.google.android.ump:user-messaging-platform:3.0.0'
 
 }
