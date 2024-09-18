@@ -44,6 +44,7 @@ import java.util.Map;
 
 import kotlin.Unit;
 
+@SuppressWarnings("deprecation")
 public class AdNetwork {
 
     public static class Initialize {

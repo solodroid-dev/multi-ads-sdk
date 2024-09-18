@@ -26,6 +26,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@SuppressWarnings("deprecation")
 public class GDPR {
 
     ConsentInformation consentInformation;
@@ -89,10 +90,10 @@ public class GDPR {
 
                 });
                 AppLovinPrivacySettings.setHasUserConsent(true, activity);
-                AppLovinPrivacySettings.setIsAgeRestrictedUser(childDirected, activity);
+                //AppLovinPrivacySettings.setIsAgeRestrictedUser(childDirected, activity);
                 break;
             case APPLOVIN_DISCOVERY:
-                AppLovinPrivacySettings.setIsAgeRestrictedUser(childDirected, activity);
+                //AppLovinPrivacySettings.setIsAgeRestrictedUser(childDirected, activity);
                 AppLovinPrivacySettings.setHasUserConsent(true, activity);
                 break;
         }

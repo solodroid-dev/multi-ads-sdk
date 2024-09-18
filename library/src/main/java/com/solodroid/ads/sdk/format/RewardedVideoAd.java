@@ -354,16 +354,6 @@ public class RewardedVideoAd {
                             }
 
                             @Override
-                            public void onRewardedVideoStarted(@NonNull MaxAd maxAd) {
-
-                            }
-
-                            @Override
-                            public void onRewardedVideoCompleted(@NonNull MaxAd maxAd) {
-
-                            }
-
-                            @Override
                             public void onAdLoaded(@NonNull MaxAd maxAd) {
                                 if (showRewardedAdIfLoaded) {
                                     showRewardedAd(onComplete, onError);
@@ -709,16 +699,6 @@ public class RewardedVideoAd {
                             }
 
                             @Override
-                            public void onRewardedVideoStarted(@NonNull MaxAd maxAd) {
-
-                            }
-
-                            @Override
-                            public void onRewardedVideoCompleted(@NonNull MaxAd maxAd) {
-
-                            }
-
-                            @Override
                             public void onAdLoaded(@NonNull MaxAd maxAd) {
                                 if (showRewardedAdIfLoaded) {
                                     showRewardedBackupAd(onComplete, onError);
@@ -970,7 +950,7 @@ public class RewardedVideoAd {
                     case APPLOVIN_MAX:
                     case FAN_BIDDING_APPLOVIN_MAX:
                         if (applovinMaxRewardedAd != null && applovinMaxRewardedAd.isReady()) {
-                            applovinMaxRewardedAd.showAd();
+                            applovinMaxRewardedAd.showAd(activity);
                         } else {
                             showRewardedBackupAd(onComplete, onError);
                         }
@@ -1114,7 +1094,7 @@ public class RewardedVideoAd {
                     case APPLOVIN_MAX:
                     case FAN_BIDDING_APPLOVIN_MAX:
                         if (applovinMaxRewardedAd != null && applovinMaxRewardedAd.isReady()) {
-                            applovinMaxRewardedAd.showAd();
+                            applovinMaxRewardedAd.showAd(activity);
                         } else {
                             onError.onRewardedAdError();
                         }
