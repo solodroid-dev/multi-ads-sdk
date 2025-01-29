@@ -47,7 +47,6 @@ import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.model.Placement;
 import com.ironsource.mediationsdk.sdk.LevelPlayRewardedVideoListener;
-import com.ironsource.mediationsdk.sdk.LevelPlayRewardedVideoManualListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdCompleteListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdErrorListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdLoadedListener;

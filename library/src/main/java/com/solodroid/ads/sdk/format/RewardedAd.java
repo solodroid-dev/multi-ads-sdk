@@ -24,7 +24,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.applovin.adview.AppLovinIncentivizedInterstitial;
 import com.applovin.adview.AppLovinInterstitialAd;
 import com.applovin.adview.AppLovinInterstitialAdDialog;
 import com.applovin.mediation.MaxAd;
@@ -35,9 +34,7 @@ import com.applovin.mediation.ads.MaxRewardedAd;
 import com.applovin.sdk.AppLovinAd;
 import com.applovin.sdk.AppLovinAdDisplayListener;
 import com.applovin.sdk.AppLovinAdLoadListener;
-import com.applovin.sdk.AppLovinAdRewardListener;
 import com.applovin.sdk.AppLovinAdSize;
-import com.applovin.sdk.AppLovinAdVideoPlaybackListener;
 import com.applovin.sdk.AppLovinSdk;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
@@ -63,8 +60,6 @@ import com.unity3d.ads.IUnityAdsShowListener;
 import com.unity3d.ads.UnityAds;
 import com.unity3d.ads.UnityAdsShowOptions;
 import com.wortise.ads.rewarded.models.Reward;
-
-import java.util.Map;
 
 public class RewardedAd {
 

@@ -62,10 +62,6 @@ import com.unity3d.ads.IUnityAdsLoadListener;
 import com.unity3d.ads.IUnityAdsShowListener;
 import com.unity3d.ads.UnityAds;
 import com.unity3d.ads.UnityAdsShowOptions;
-import com.unity3d.mediation.IInterstitialAdLoadListener;
-import com.unity3d.mediation.IInterstitialAdShowListener;
-import com.unity3d.mediation.errors.LoadError;
-import com.unity3d.mediation.errors.ShowError;
 
 import java.util.concurrent.TimeUnit;
 
@@ -908,7 +904,7 @@ public class InterstitialAd {
 
                                 @Override
                                 public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {
-
+                                    loadInterstitialAd();
                                 }
                             };
                             UnityAds.show(activity, unityInterstitialId, new UnityAdsShowOptions(), showListener);
@@ -1012,7 +1008,7 @@ public class InterstitialAd {
 
                             @Override
                             public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {
-
+                                loadBackupInterstitialAd();
                             }
                         };
                         UnityAds.show(activity, unityInterstitialId, new UnityAdsShowOptions(), showListener);
@@ -1793,6 +1789,7 @@ public class InterstitialAd {
                                 @Override
                                 public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {
                                     onInterstitialAdDismissedListener.onInterstitialAdDismissed();
+                                    loadInterstitialAd(onInterstitialAdDismissedListener);
                                 }
                             };
                             UnityAds.show(activity, unityInterstitialId, new UnityAdsShowOptions(), showListener);
@@ -1936,6 +1933,7 @@ public class InterstitialAd {
                             @Override
                             public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {
                                 onInterstitialAdDismissedListener.onInterstitialAdDismissed();
+                                loadBackupInterstitialAd(onInterstitialAdDismissedListener);
                             }
                         };
                         UnityAds.show(activity, unityInterstitialId, new UnityAdsShowOptions(), showListener);

@@ -27,16 +27,11 @@ import com.applovin.sdk.AppLovinSdk;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.ironsource.mediationsdk.IronSource;
-import com.ironsource.mediationsdk.sdk.InitializationListener;
 import com.solodroid.ads.sdk.helper.AudienceNetworkInitializeHelper;
 import com.startapp.sdk.adsbase.StartAppAd;
 import com.startapp.sdk.adsbase.StartAppSDK;
 import com.unity3d.ads.IUnityAdsInitializationListener;
 import com.unity3d.ads.UnityAds;
-import com.unity3d.mediation.IInitializationListener;
-import com.unity3d.mediation.InitializationConfiguration;
-import com.unity3d.mediation.UnityMediation;
-import com.unity3d.mediation.errors.SdkInitializationError;
 import com.wortise.ads.AdSettings;
 import com.wortise.ads.WortiseSdk;
 

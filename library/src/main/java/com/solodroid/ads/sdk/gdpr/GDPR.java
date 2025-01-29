@@ -13,7 +13,6 @@ import android.util.Log;
 
 import com.applovin.sdk.AppLovinPrivacySettings;
 import com.applovin.sdk.AppLovinSdk;
-import com.applovin.sdk.AppLovinSdkConfiguration;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.ump.ConsentDebugSettings;
 import com.google.android.ump.ConsentForm;
