@@ -53,9 +53,9 @@
             android:resource="@xml/gma_ad_services_config"
             tools:replace="android:resource" />
 
-        <meta-data
-            android:name="com.wortise.ads.utm"
-            android:value="solodroid" />
+<!--        <meta-data-->
+<!--            android:name="com.wortise.ads.utm"-->
+<!--            android:value="solodroid" />-->
 
     </application>
 
