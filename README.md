@@ -1,6 +1,18 @@
 # ads-network-sdk
 A library for displaying ads from multiple ad networks
 
+Ad Network List:
+<pre>
+- AdMob
+- Ad Manager
+- Meta Audience Network
+- AppLovin Max
+- AppLovin Discovery
+- Start.io
+- Unity Ads
+- ironSource
+</pre>
+
 Implementation build.gradle (Module: app)
 <pre>
 implementation 'com.github.solodroid-dev:multi-ads-sdk:2.+'
