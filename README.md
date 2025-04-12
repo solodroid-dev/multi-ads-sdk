@@ -1,6 +1,18 @@
 # ads-network-sdk
 A library for displaying ads from multiple ad networks
 
+Ad Network List:
+<pre>
+- AdMob
+- Ad Manager
+- Meta Audience Network
+- AppLovin Max
+- AppLovin Discovery
+- Start.io
+- Unity Ads
+- ironSource
+</pre>
+
 Implementation build.gradle (Module: app)
 <pre>
 implementation 'com.github.solodroid-dev:multi-ads-sdk:2.+'
@@ -14,10 +26,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
-        maven { url 'https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/' }
-        maven { url 'https://maven.wortise.com/artifactory/public' }
         maven { url 'https://android-sdk.is.com/' }
-        maven { url 'https://artifact.bytedance.com/repository/pangle' }
+        maven { url 'https://unity3ddist.jfrog.io/artifactory/unity-mediation-mvn-prod-local/' }
     }
 }
 </pre>
