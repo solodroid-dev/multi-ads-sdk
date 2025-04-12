@@ -59,7 +59,6 @@ import com.unity3d.ads.IUnityAdsLoadListener;
 import com.unity3d.ads.IUnityAdsShowListener;
 import com.unity3d.ads.UnityAds;
 import com.unity3d.ads.UnityAdsShowOptions;
-import com.wortise.ads.rewarded.models.Reward;
 
 public class RewardedAd {
 
@@ -75,7 +74,7 @@ public class RewardedAd {
         private MaxRewardedAd applovinMaxRewardedAd;
         public AppLovinInterstitialAdDialog appLovinInterstitialAdDialog;
         public AppLovinAd appLovinAd;
-        private com.wortise.ads.rewarded.RewardedAd wortiseRewardedAd;
+//        private com.wortise.ads.rewarded.RewardedAd wortiseRewardedAd;
         private String adStatus = "";
         private String mainAds = "";
         private String backupAds = "";
@@ -448,54 +447,54 @@ public class RewardedAd {
                         });
                         break;
 
-                    case WORTISE:
-                        wortiseRewardedAd = new com.wortise.ads.rewarded.RewardedAd(activity, wortiseRewardedId);
-                        wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
-                            @Override
-                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
-                            }
-
-                            @Override
-                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
-
-                            }
-
-                            @Override
-                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
-                                loadRewardedBackupAd(onComplete, onDismiss);
-                                Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
-                            }
-
-                            @Override
-                            public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
-                            }
-
-                            @Override
-                            public void onRewardedCompleted(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull Reward reward) {
-                                onComplete.onRewardedAdComplete();
-                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad complete");
-                            }
-
-                            @Override
-                            public void onRewardedDismissed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-                                loadRewardedAd(onComplete, onDismiss);
-                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad dismissed");
-                            }
-
-                            @Override
-                            public void onRewardedLoaded(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad loaded");
-                            }
-
-                            @Override
-                            public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
-                            }
-                        });
-                        wortiseRewardedAd.loadAd();
-                        break;
+//                    case WORTISE:
+//                        wortiseRewardedAd = new com.wortise.ads.rewarded.RewardedAd(activity, wortiseRewardedId);
+//                        wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
+//                            @Override
+//                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+//                                loadRewardedBackupAd(onComplete, onDismiss);
+//                                Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
+//                            }
+//
+//                            @Override
+//                            public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onRewardedCompleted(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull Reward reward) {
+//                                onComplete.onRewardedAdComplete();
+//                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad complete");
+//                            }
+//
+//                            @Override
+//                            public void onRewardedDismissed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//                                loadRewardedAd(onComplete, onDismiss);
+//                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad dismissed");
+//                            }
+//
+//                            @Override
+//                            public void onRewardedLoaded(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad loaded");
+//                            }
+//
+//                            @Override
+//                            public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//
+//                            }
+//                        });
+//                        wortiseRewardedAd.loadAd();
+//                        break;
                 }
             }
         }
@@ -763,53 +762,53 @@ public class RewardedAd {
                         });
                         break;
 
-                    case WORTISE:
-                        wortiseRewardedAd = new com.wortise.ads.rewarded.RewardedAd(activity, wortiseRewardedId);
-                        wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
-                            @Override
-                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
-                            }
-
-                            @Override
-                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
-
-                            }
-
-                            @Override
-                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
-                            }
-
-                            @Override
-                            public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
-                            }
-
-                            @Override
-                            public void onRewardedCompleted(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull Reward reward) {
-                                onComplete.onRewardedAdComplete();
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad complete");
-                            }
-
-                            @Override
-                            public void onRewardedDismissed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-                                loadRewardedAd(onComplete, onDismiss);
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad dismissed");
-                            }
-
-                            @Override
-                            public void onRewardedLoaded(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad loaded");
-                            }
-
-                            @Override
-                            public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
-                            }
-                        });
-                        wortiseRewardedAd.loadAd();
-                        break;
+//                    case WORTISE:
+//                        wortiseRewardedAd = new com.wortise.ads.rewarded.RewardedAd(activity, wortiseRewardedId);
+//                        wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
+//                            @Override
+//                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
+//                            }
+//
+//                            @Override
+//                            public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onRewardedCompleted(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull Reward reward) {
+//                                onComplete.onRewardedAdComplete();
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad complete");
+//                            }
+//
+//                            @Override
+//                            public void onRewardedDismissed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//                                loadRewardedAd(onComplete, onDismiss);
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad dismissed");
+//                            }
+//
+//                            @Override
+//                            public void onRewardedLoaded(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad loaded");
+//                            }
+//
+//                            @Override
+//                            public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+//
+//                            }
+//                        });
+//                        wortiseRewardedAd.loadAd();
+//                        break;
                 }
             }
         }
@@ -932,13 +931,13 @@ public class RewardedAd {
                         }
                         break;
 
-                    case WORTISE:
-                        if (wortiseRewardedAd != null && wortiseRewardedAd.isAvailable()) {
-                            wortiseRewardedAd.showAd();
-                        } else {
-                            showRewardedBackupAd(onComplete, onDismiss, onError);
-                        }
-                        break;
+//                    case WORTISE:
+//                        if (wortiseRewardedAd != null && wortiseRewardedAd.isAvailable()) {
+//                            wortiseRewardedAd.showAd();
+//                        } else {
+//                            showRewardedBackupAd(onComplete, onDismiss, onError);
+//                        }
+//                        break;
 
                     default:
                         onError.onRewardedAdError();
@@ -1044,13 +1043,13 @@ public class RewardedAd {
                         }
                         break;
 
-                    case WORTISE:
-                        if (wortiseRewardedAd != null && wortiseRewardedAd.isAvailable()) {
-                            wortiseRewardedAd.showAd();
-                        } else {
-                            onError.onRewardedAdError();
-                        }
-                        break;
+//                    case WORTISE:
+//                        if (wortiseRewardedAd != null && wortiseRewardedAd.isAvailable()) {
+//                            wortiseRewardedAd.showAd();
+//                        } else {
+//                            onError.onRewardedAdError();
+//                        }
+//                        break;
 
                     default:
                         onError.onRewardedAdError();
